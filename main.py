@@ -10,3 +10,4 @@ from logica.equilibrio import AnalizadorEquilibrio
 ARCHIVO_USUARIOS: str = "datos/usuarios.json"
 ARCHIVO_SESIONES: str = "datos/sesiones.json"
 
+# Cambio
