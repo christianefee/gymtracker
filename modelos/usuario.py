@@ -4,5 +4,4 @@ class Usuario:
         self.edad: int = edad
         self.peso: float = peso
         self.altura: float = altura
-        pass
-
+        
