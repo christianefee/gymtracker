@@ -111,6 +111,39 @@ def analizar_equilibrio() -> None:
 
     print(f"\n{resultado}")
 
+def menu() -> None:
+    while True:
+        print("\n==============================")
+        print("        GYMTRACKER")
+        print("==============================")
+        print("1. Registrar usuario")
+        print("2. Registrar sesion")
+        print("3. Ver historial")
+        print("4. Analizar progreso")
+        print("5. Generar recomendacion")
+        print("6. Analizar equilibrio muscular")
+        print("7. Salir")
+        print("==============================")
+
+        opcion: str = input("Elige una opcion: ")
+
+        if opcion == "1":
+            registrar_usuario()
+        elif opcion == "2":
+            registrar_sesion()
+        elif opcion == "3":
+            ver_historial()
+        elif opcion == "4":
+            analizar_progreso()
+        elif opcion == "5":
+            generar_recomendacion()
+        elif opcion == "6":
+            analizar_equilibrio()
+        elif opcion == "7":
+            print("\nHasta luego. Sigue entrenando duro.")
+            break
+        else:
+            print("Opcion invalida. Intenta de nuevo.")
 
 
     
