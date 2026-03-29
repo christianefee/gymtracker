@@ -43,6 +43,25 @@ def ver_historial() -> None:
         for ejercicio in sesion["ejercicios"]:
             print(f"  - {ejercicio['nombre']} | Musculo: {ejercicio['musculo']} | Peso: {ejercicio['peso']} kg | Series: {ejercicio['series']} | Reps: {ejercicio['repeticiones']}")
 
+def analizar_progreso() -> None:
+    sesiones: list = cargar_sesiones()
+    nombre_usuario: str = input("\nNombre de usuario: ")
+
+    sesiones_usuario: list = []
+    for sesion in sesiones:
+        if sesion["usuario"] == nombre_usuario:
+            sesiones_usuario.append(sesion)
+
+    if len(sesiones_usuario) == 0:
+        print("No hay sesiones registradas para este usuario.")
+        return
+
+    nombre_ejercicio: str = input("Nombre del ejercicio a analizar: ")
+
+    analizador: AnalizadorProgreso = AnalizadorProgreso(sesiones_usuario)
+    resultado: str = analizador.detectar_estancamiento(nombre_ejercicio)
+    print(f"\n{resultado}")
+
 
 
 
