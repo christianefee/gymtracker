@@ -30,5 +30,12 @@ def ver_historial() -> None:
     sesiones: list = cargar_sesiones()
     nombre_usuario: str = input("\nNombre de usuario: ")
 
+    sesiones_usuario: list = []
+    for sesion in sesiones:
+        if sesion["usuario"] == nombre_usuario:
+            sesiones_usuario.append(sesion)
+
+    
+
     
 ## Estos def son para cargar y guardar en los JSON
