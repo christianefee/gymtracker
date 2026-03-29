@@ -35,7 +35,16 @@ def ver_historial() -> None:
         if sesion["usuario"] == nombre_usuario:
             sesiones_usuario.append(sesion)
 
-    
+    print(f"\n--- HISTORIAL DE {nombre_usuario.upper()} ---")
+
+    for sesion in sesiones_usuario:
+        print(f"\nSesion: {sesion['nombre']} | Fecha: {sesion['fecha']}")
+        print("Ejercicios:")
+        for ejercicio in sesion["ejercicios"]:
+            print(f"  - {ejercicio['nombre']} | Musculo: {ejercicio['musculo']} | Peso: {ejercicio['peso']} kg | Series: {ejercicio['series']} | Reps: {ejercicio['repeticiones']}")
+
+
+
 
     
 ## Estos def son para cargar y guardar en los JSON
