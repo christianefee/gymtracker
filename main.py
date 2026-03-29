@@ -26,4 +26,9 @@ def guardar_sesiones(sesiones: list) -> None:
     with open(ARCHIVO_SESIONES, "w") as archivo:
         json.dump(sesiones, archivo, indent=4)
 
+def ver_historial() -> None:
+    sesiones: list = cargar_sesiones()
+    nombre_usuario: str = input("\nNombre de usuario: ")
+
+    
 ## Estos def son para cargar y guardar en los JSON
