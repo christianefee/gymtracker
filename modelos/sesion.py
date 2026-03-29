@@ -14,5 +14,3 @@ class Sesion:
         for ejercicio in self.ejercicios:
             total += ejercicio.calcular_volumen()
         return total
-
-
