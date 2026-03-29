@@ -11,7 +11,6 @@ class AnalizadorProgreso:
                 if ejercicio("nombre") == nombre_ejercicio:
                     pesos.append(ejercicio["peso"])
         return pesos
-        pass
 
     def detectar_estancamiento(self, nombre_ejercicio: str) -> str:
         pesos: list = self.obtener_pesos_ejercicio(nombre_ejercicio)
