@@ -62,6 +62,31 @@ def analizar_progreso() -> None:
     resultado: str = analizador.detectar_estancamiento(nombre_ejercicio)
     print(f"\n{resultado}")
 
+def generar_recomendacion() -> None:
+    sesiones: list = cargar_sesiones()
+    usuarios: dict = cargar_usuarios()
+    nombre_usuario: str = input("\nNombre de usuario: ")
+
+    if nombre_usuario not in usuarios:
+        print("Usuario no encontrado.")
+        return
+
+    sesiones_usuario: list = []
+    for sesion in sesiones:
+        if sesion["usuario"] == nombre_usuario:
+            sesiones_usuario.append(sesion)
+
+    if len(sesiones_usuario) == 0:
+        print("No hay sesiones registradas para este usuario.")
+        return
+
+    nombre_ejercicio: str = input("Nombre del ejercicio: ")
+    peso_usuario: float = usuarios[nombre_usuario]["peso"]
+    nivel: str = usuarios[nombre_usuario]["nivel"]
+
+    recomendador: Recomendador = Recomendador(sesiones_usuario, peso_usuario, nivel)
+    resultado: str = recomendador.generar_recomendacion(nombre_ejercicio)
+    print(f"\n{resultado}")
 
 
 
