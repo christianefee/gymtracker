@@ -25,3 +25,5 @@ def cargar_sesiones() -> list:
 def guardar_sesiones(sesiones: list) -> None:
     with open(ARCHIVO_SESIONES, "w") as archivo:
         json.dump(sesiones, archivo, indent=4)
+
+## Estos def son para cargar y guardar en los JSON
