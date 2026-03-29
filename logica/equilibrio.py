@@ -1,7 +1,6 @@
 class AnalizadorEquilibrio:
     def __init__(self, sesiones: list) -> None:
         self.sesiones: list = sesiones
-        pass
 
     def calcular_volumen_por_musculo(self) -> dict:
         volumen_por_musculo = {}
