@@ -25,4 +25,3 @@ def cargar_sesiones() -> list:
 def guardar_sesiones(sesiones: list) -> None:
     with open(ARCHIVO_SESIONES, "w") as archivo:
         json.dump(sesiones, archivo, indent=4)
-
