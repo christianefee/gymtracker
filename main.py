@@ -88,6 +88,29 @@ def generar_recomendacion() -> None:
     resultado: str = recomendador.generar_recomendacion(nombre_ejercicio)
     print(f"\n{resultado}")
 
+def analizar_equilibrio() -> None:
+    sesiones: list = cargar_sesiones()
+    nombre_usuario: str = input("\nNombre de usuario: ")
+
+    sesiones_usuario: list = []
+    for sesion in sesiones:
+        if sesion["usuario"] == nombre_usuario:
+            sesiones_usuario.append(sesion)
+
+    if len(sesiones_usuario) == 0:
+        print("No hay sesiones registradas para este usuario.")
+        return
+
+    equilibrio: AnalizadorEquilibrio = AnalizadorEquilibrio(sesiones_usuario)
+    distribucion: dict = equilibrio.calcular_distribucion()
+    resultado: str = equilibrio.detectar_desbalance()
+
+    print(f"\n--- DISTRIBUCION MUSCULAR DE {nombre_usuario.upper()} ---")
+    for musculo, porcentaje in distribucion.items():
+        print(f"  {musculo}: {porcentaje}%")
+
+    print(f"\n{resultado}")
+
 
 
     
